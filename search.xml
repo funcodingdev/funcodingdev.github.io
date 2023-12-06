@@ -15,6 +15,23 @@
       </tags>
   </entry>
   <entry>
+    <title>快速克隆 submodule 工程</title>
+    <url>/2020/11/08/quickly-clone-submodule-projects/</url>
+    <content><![CDATA[<p>本文将介绍如何快速克隆一个含有 submodule 子工程的项目。</p>
+<span id="more"></span>
+
+<p>克隆含有 submodule 工程的 git 仓库有两种方式：</p>
+<ol>
+<li>克隆主项目和所有子项目源码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --recurse-submodules &lt;main_project_url&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>先克隆主工程代码，然后再克隆 submodule 工程代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone MainProject.git</span><br><span class="line"></span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>快速删除 submodule 子工程</title>
     <url>/2020/11/08/quickly-delete-submodule-child-project/</url>
     <content><![CDATA[<p>本文将介绍如何在Git中删除子模块。</p>
@@ -37,22 +54,5 @@
 </ol>
 <p>完成上述步骤后，可以手动删除 submodule 的文件夹及其中的文件，最后在根目录的 <code>settings.gradle</code> 文件中将 submodule 相关的行删除</p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>快速克隆 submodule 工程</title>
-    <url>/2020/11/08/quickly-clone-submodule-projects/</url>
-    <content><![CDATA[<p>本文将介绍如何快速克隆一个含有 submodule 子工程的项目。</p>
-<span id="more"></span>
-
-<p>克隆含有 submodule 工程的 git 仓库有两种方式：</p>
-<ol>
-<li>克隆主项目和所有子项目源码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --recurse-submodules &lt;main_project_url&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>先克隆主工程代码，然后再克隆 submodule 工程代码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone MainProject.git</span><br><span class="line"></span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
 </search>
