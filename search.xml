@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello FunCoding</title>
-    <url>/2020/11/08/hello-funcoding/</url>
-    <content><![CDATA[<blockquote>
-<p>除了代码，还有诗和远方。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>FunCoding</category>
-      </categories>
-      <tags>
-        <tag>FunCoding</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>快速删除 submodule 子工程</title>
     <url>/2020/11/08/quickly-delete-submodule-child-project/</url>
     <content><![CDATA[<p>本文将介绍如何在Git中删除子模块。</p>
@@ -37,6 +23,20 @@
 </ol>
 <p>完成上述步骤后，可以手动删除 submodule 的文件夹及其中的文件，最后在根目录的 <code>settings.gradle</code> 文件中将 submodule 相关的行删除</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Hello FunCoding</title>
+    <url>/2020/11/08/hello-funcoding/</url>
+    <content><![CDATA[<blockquote>
+<p>除了代码，还有诗和远方。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>FunCoding</category>
+      </categories>
+      <tags>
+        <tag>FunCoding</tag>
+      </tags>
   </entry>
   <entry>
     <title>快速克隆 submodule 工程</title>
