@@ -1,147 +1,238 @@
-<?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>Hello FunCoding</title>
-    <url>/2020/11/08/hello-funcoding/</url>
-    <content><![CDATA[<blockquote>
-<p>除了代码，还有诗和远方。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>FunCoding</category>
-      </categories>
-      <tags>
-        <tag>FunCoding</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速删除 submodule 子工程</title>
-    <url>/2020/11/08/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4submodule%E5%B7%A5%E7%A8%8B/</url>
-    <content><![CDATA[<p>删除 git 工程中的 submodule 子模块具体步骤如下：</p>
-<span id="more"></span>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
 
-<ol>
-<li><p>打开终端或 Git Bash</p>
-</li>
-<li><p>打开项目的根目录</p>
-</li>
-<li><p>运行 <code>git submodule</code> 命令，确保正确地识别了要删除的 submodule</p>
-</li>
-<li><p>运行 <code>git submodule deinit &lt;submodule_path&gt;</code> 命令，卸载 submodule</p>
-</li>
-<li><p>运行 <code>git rm &lt;submodule_path&gt;</code> 命令，从 Git 中删除该子模块</p>
-</li>
-<li><p>运行 <code>git commit -m &quot;removed the submodule&quot;</code> 命令，提交commit记录</p>
-</li>
-</ol>
-<p>完成上述步骤后，可以手动删除 submodule 的文件夹及其中的文件，最后在根目录的 <code>settings.gradle</code> 文件中将 submodule 相关的行删除</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速克隆 submodule 工程</title>
-    <url>/2020/11/08/%E5%BF%AB%E9%80%9F%E5%85%8B%E9%9A%86submodule%E5%B7%A5%E7%A8%8B/</url>
-    <content><![CDATA[<p>克隆一个含有 submodule 子工程的项目，有两种可行的方式：</p>
-<span id="more"></span>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/website/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/website/favicon.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<ol>
-<li>克隆主项目和所有子项目源码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --recurse-submodules &lt;main_project_url&gt;</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="/css/main.css">
 
-<ol start="2">
-<li>先克隆主工程代码，然后再克隆 submodule 工程代码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone MainProject.git</span><br><span class="line"></span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>设置hexo首页只显示部分摘要</title>
-    <url>/2023/12/08/%E8%AE%BE%E7%BD%AEhexo%E9%A6%96%E9%A1%B5%E5%8F%AA%E6%98%BE%E7%A4%BA%E9%83%A8%E5%88%86%E6%91%98%E8%A6%81/</url>
-    <content><![CDATA[<p>在Hexo中，要使首页只显示文章的部分摘要而不是整篇文章，可以通过以下几种方法实现</p>
-<span id="more"></span>
 
-<ol>
-<li>使用 <code>&lt;!-- more --&gt;</code> 标签</li>
-</ol>
-<p>在希望摘要结束的地方插入 <code>&lt;!-- more --&gt;</code> 标签。这样，首页就只会显示该标签之前的内容作为摘要，例如：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line"><span class="section">title: 我的博客文章</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">这是文章的开头部分，它将作为摘要显示在首页。</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line">这是文章的剩余部分，它将只在文章的详细页面中显示。</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>在文章模版中写概述</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 我的博客文章</span><br><span class="line"><span class="section">description: 这是文章的开头部分，它将作为摘要显示在首页。</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">这是文章的开头部分，它将作为摘要显示在首页。</span><br><span class="line"></span><br><span class="line">这是文章的剩余部分，它将只在文章的详细页面中显示。</span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
 
-]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>“Mac应用”已损坏，打不开解决办法</title>
-    <url>/2023/12/20/%E2%80%9CMac%E5%BA%94%E7%94%A8%E2%80%9D%E5%B7%B2%E6%8D%9F%E5%9D%8F%EF%BC%8C%E6%89%93%E4%B8%8D%E5%BC%80%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<h2 id="macOS-Mojave-10-14及以下系统："><a href="#macOS-Mojave-10-14及以下系统：" class="headerlink" title="macOS Mojave 10.14及以下系统："></a>macOS Mojave 10.14及以下系统：</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.funcoding.cn","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-<h2 id="macOS-Catalina-10-15及以上系统："><a href="#macOS-Catalina-10-15及以上系统：" class="headerlink" title="macOS Catalina 10.15及以上系统："></a>macOS Catalina 10.15及以上系统：</h2><p>打开「终端.app」，输入以下命令并回车，输入开机密码回车</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine 空格 软件的路径</span><br></pre></td></tr></table></figure>
+    <meta name="description" content="前言ADB，即 Android Debug Bridge，它是 Android 开发&#x2F;测试人员不可替代的强大工具，也是 Android 设备玩家的好玩具。但是在工作中经常会忘记adb命令，所以就把网上写得比较好的文章整合成博客，方便后续查阅。  文章内容参考https:&#x2F;&#x2F;github.com&#x2F;mzlogin&#x2F;awesome-adb  注： 文中有部分命令的支持情况可能与 Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ADB用法大全">
+<meta property="og:url" content="https://www.funcoding.cn/2023/02/28/ADB%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/index.html">
+<meta property="og:site_name" content="FunCoding">
+<meta property="og:description" content="前言ADB，即 Android Debug Bridge，它是 Android 开发&#x2F;测试人员不可替代的强大工具，也是 Android 设备玩家的好玩具。但是在工作中经常会忘记adb命令，所以就把网上写得比较好的文章整合成博客，方便后续查阅。  文章内容参考https:&#x2F;&#x2F;github.com&#x2F;mzlogin&#x2F;awesome-adb  注： 文中有部分命令的支持情况可能与 Android">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-28T15:00:44.000Z">
+<meta property="article:modified_time" content="2023-12-08T03:58:49.439Z">
+<meta property="article:author" content="Hello">
+<meta property="article:tag" content="adb">
+<meta name="twitter:card" content="summary">
 
-<span id="more"></span>
 
-<p>如Sketch.app</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine /Applications/Sketch.app</span><br></pre></td></tr></table></figure>
+<link rel="canonical" href="https://www.funcoding.cn/2023/02/28/ADB%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">
 
-<p>如CleanMyMac X.app</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo xattr -rd com.apple.quarantine /Applications/CleanMyMac X.app</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Mac</category>
-      </categories>
-      <tags>
-        <tag>mac</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为什么说ActivityThread中的线程是主线程</title>
-    <url>/2023/12/21/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4ActivityThread%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E6%98%AF%E4%B8%BB%E7%BA%BF%E7%A8%8B/</url>
-    <content><![CDATA[<p>在安卓Android开发中，<code>ActivityThread</code> 中的线程被称为主线程（或UI线程）的原因主要有以下几点：</p>
-<span id="more"></span>
 
-<ol>
-<li><strong>事件处理和UI更新</strong>：主线程负责处理UI相关的事件，包括用户的交互（如触摸、点击）和UI元素的绘制。所有的UI更新必须在主线程中执行，以确保界面的一致性和流畅性。</li>
-<li><strong>单线程模型</strong>：安卓采用了单线程模型来简化开发和避免并发问题。在这个模型中，主线程承担了所有与UI相关的操作，而其他的后台任务则在其他线程中执行，以避免阻塞UI。</li>
-<li><strong>Looper和消息队列</strong>：<code>ActivityThread</code> 中的主线程有一个<code>Looper</code>循环，它不断地从消息队列中取出和分发消息。这个循环是主线程的核心，它使得主线程可以响应事件（如触摸事件、系统消息）。</li>
-<li><strong>生命周期管理</strong>：在安卓应用中，所有的Activity、Fragment等组件的生命周期都是由主线程来管理的。这意味着所有的生命周期相关的回调方法（如<code>onCreate()</code>, <code>onPause()</code>, <code>onResume()</code>等）都是在主线程中被调用。</li>
-<li><strong>应用程序入口</strong>：在应用程序启动时，<code>ActivityThread</code>是被首先创建和执行的，它负责初始化应用程序环境，加载第一个Activity等，因此它自然成为了应用的主线程。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Android</category>
-        <category>系统源码</category>
-      </categories>
-      <tags>
-        <tag>android</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ADB用法大全</title>
-    <url>/2023/02/28/ADB%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ADB，即 <a href="https://developer.android.com/studio/command-line/adb.html">Android Debug Bridge</a>，它是 Android 开发&#x2F;测试人员不可替代的强大工具，也是 Android 设备玩家的好玩具。但是在工作中经常会忘记adb命令，所以就把网上写得比较好的文章整合成博客，方便后续查阅。</p>
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.funcoding.cn/2023/02/28/ADB%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/","path":"2023/02/28/ADB用法大全/","title":"ADB用法大全"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ADB用法大全 | FunCoding</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">FunCoding</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">除了代码，还有诗和远方。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">命令语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E5%91%BD%E4%BB%A4%E6%8C%87%E5%AE%9A%E7%9B%AE%E6%A0%87%E8%AE%BE%E5%A4%87"><span class="nav-number">2.2.</span> <span class="nav-text">为命令指定目标设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-%E5%81%9C%E6%AD%A2"><span class="nav-number">2.3.</span> <span class="nav-text">启动&#x2F;停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-adb-%E7%89%88%E6%9C%AC"><span class="nav-number">2.4.</span> <span class="nav-text">查看 adb 版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A5-root-%E6%9D%83%E9%99%90%E8%BF%90%E8%A1%8C-adbd"><span class="nav-number">2.5.</span> <span class="nav-text">以 root 权限运行 adbd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A-adb-server-%E7%9A%84%E7%BD%91%E7%BB%9C%E7%AB%AF%E5%8F%A3"><span class="nav-number">2.6.</span> <span class="nav-text">指定 adb server 的网络端口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">设备连接管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%B7%B2%E8%BF%9E%E6%8E%A5%E8%AE%BE%E5%A4%87-%E6%A8%A1%E6%8B%9F%E5%99%A8"><span class="nav-number">3.1.</span> <span class="nav-text">查询已连接设备&#x2F;模拟器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#USB-%E8%BF%9E%E6%8E%A5"><span class="nav-number">3.2.</span> <span class="nav-text">USB 连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5%EF%BC%88Android11-%E5%8F%8A%E4%BB%A5%E4%B8%8A%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">无线连接（Android11 及以上）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5%EF%BC%88%E9%9C%80%E8%A6%81%E5%80%9F%E5%8A%A9-USB-%E7%BA%BF%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">无线连接（需要借助 USB 线）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E7%BA%BF%E8%BF%9E%E6%8E%A5%EF%BC%88%E6%97%A0%E9%9C%80%E5%80%9F%E5%8A%A9-USB-%E7%BA%BF%EF%BC%89"><span class="nav-number">3.5.</span> <span class="nav-text">无线连接（无需借助 USB 线）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E7%AE%A1%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">应用管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BA%94%E7%94%A8%E5%88%97%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">查看应用列表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%80%E6%9C%89%E5%BA%94%E7%94%A8"><span class="nav-number">4.1.1.</span> <span class="nav-text">所有应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%B3%BB%E7%BB%9F%E5%BA%94%E7%94%A8"><span class="nav-number">4.1.2.</span> <span class="nav-text">系统应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%94%E7%94%A8"><span class="nav-number">4.1.3.</span> <span class="nav-text">第三方应用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8C%85%E5%90%8D%E5%8C%85%E5%90%AB%E6%9F%90%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">4.1.4.</span> <span class="nav-text">包名包含某字符串的应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-APK"><span class="nav-number">4.2.</span> <span class="nav-text">安装 APK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%B8%E8%BD%BD%E5%BA%94%E7%94%A8"><span class="nav-number">4.3.</span> <span class="nav-text">卸载应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%85%E9%99%A4%E5%BA%94%E7%94%A8%E6%95%B0%E6%8D%AE%E4%B8%8E%E7%BC%93%E5%AD%98"><span class="nav-number">4.4.</span> <span class="nav-text">清除应用数据与缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%89%8D%E5%8F%B0-Activity"><span class="nav-number">4.5.</span> <span class="nav-text">查看前台 Activity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84-Services"><span class="nav-number">4.6.</span> <span class="nav-text">查看正在运行的 Services</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BA%94%E7%94%A8%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF"><span class="nav-number">4.7.</span> <span class="nav-text">查看应用详细信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BA%94%E7%94%A8%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84"><span class="nav-number">4.8.</span> <span class="nav-text">查看应用安装路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E%E5%BA%94%E7%94%A8%E4%BA%A4%E4%BA%92"><span class="nav-number">5.</span> <span class="nav-text">与应用交互</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E5%BA%94%E7%94%A8-%E8%B0%83%E8%B5%B7-Activity"><span class="nav-number">5.1.</span> <span class="nav-text">启动应用&#x2F; 调起 Activity</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%B5%B7-Service"><span class="nav-number">5.2.</span> <span class="nav-text">调起 Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%9C%E6%AD%A2-Service"><span class="nav-number">5.3.</span> <span class="nav-text">停止 Service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD"><span class="nav-number">5.4.</span> <span class="nav-text">发送广播</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%BA%E5%88%B6%E5%81%9C%E6%AD%A2%E5%BA%94%E7%94%A8"><span class="nav-number">5.5.</span> <span class="nav-text">强制停止应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B6%E7%B4%A7%E5%86%85%E5%AD%98"><span class="nav-number">5.6.</span> <span class="nav-text">收紧内存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">文件管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E8%AE%BE%E5%A4%87%E9%87%8C%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%B0%E7%94%B5%E8%84%91"><span class="nav-number">6.1.</span> <span class="nav-text">复制设备里的文件到电脑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E5%88%B6%E7%94%B5%E8%84%91%E9%87%8C%E7%9A%84%E6%96%87%E4%BB%B6%E5%88%B0%E8%AE%BE%E5%A4%87"><span class="nav-number">6.2.</span> <span class="nav-text">复制电脑里的文件到设备</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E6%8C%89%E9%94%AE-%E8%BE%93%E5%85%A5"><span class="nav-number">7.</span> <span class="nav-text">模拟按键&#x2F;输入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E6%BA%90%E9%94%AE"><span class="nav-number">7.1.</span> <span class="nav-text">电源键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95%E9%94%AE"><span class="nav-number">7.2.</span> <span class="nav-text">菜单键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HOME-%E9%94%AE"><span class="nav-number">7.3.</span> <span class="nav-text">HOME 键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E9%94%AE"><span class="nav-number">7.4.</span> <span class="nav-text">返回键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9F%B3%E9%87%8F%E6%8E%A7%E5%88%B6"><span class="nav-number">7.5.</span> <span class="nav-text">音量控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AA%92%E4%BD%93%E6%8E%A7%E5%88%B6"><span class="nav-number">7.6.</span> <span class="nav-text">媒体控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%B9%E4%BA%AE-%E7%86%84%E7%81%AD%E5%B1%8F%E5%B9%95"><span class="nav-number">7.7.</span> <span class="nav-text">点亮&#x2F;熄灭屏幕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%91%E5%8A%A8%E8%A7%A3%E9%94%81"><span class="nav-number">7.8.</span> <span class="nav-text">滑动解锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%96%87%E6%9C%AC"><span class="nav-number">7.9.</span> <span class="nav-text">输入文本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97"><span class="nav-number">8.</span> <span class="nav-text">查看日志</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-%E6%97%A5%E5%BF%97"><span class="nav-number">8.1.</span> <span class="nav-text">Android 日志</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89%E7%BA%A7%E5%88%AB%E8%BF%87%E6%BB%A4%E6%97%A5%E5%BF%97"><span class="nav-number">8.1.1.</span> <span class="nav-text">按级别过滤日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%89-tag-%E5%92%8C%E7%BA%A7%E5%88%AB%E8%BF%87%E6%BB%A4%E6%97%A5%E5%BF%97"><span class="nav-number">8.1.2.</span> <span class="nav-text">按 tag 和级别过滤日志</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F"><span class="nav-number">8.1.3.</span> <span class="nav-text">日志格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA%E6%97%A5%E5%BF%97"><span class="nav-number">8.1.4.</span> <span class="nav-text">清空日志</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E6%A0%B8%E6%97%A5%E5%BF%97"><span class="nav-number">8.2.</span> <span class="nav-text">内核日志</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF"><span class="nav-number">9.</span> <span class="nav-text">查看设备信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9E%8B%E5%8F%B7"><span class="nav-number">9.1.</span> <span class="nav-text">型号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B5%E6%B1%A0%E7%8A%B6%E5%86%B5"><span class="nav-number">9.2.</span> <span class="nav-text">电池状况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%8F%E5%B9%95%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">9.3.</span> <span class="nav-text">屏幕分辨率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%8F%E5%B9%95%E5%AF%86%E5%BA%A6"><span class="nav-number">9.4.</span> <span class="nav-text">屏幕密度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%B1%8F%E5%8F%82%E6%95%B0"><span class="nav-number">9.5.</span> <span class="nav-text">显示屏参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#android-id"><span class="nav-number">9.6.</span> <span class="nav-text">android_id</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IMEI"><span class="nav-number">9.7.</span> <span class="nav-text">IMEI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Android-%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="nav-number">9.8.</span> <span class="nav-text">Android 系统版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IP-%E5%9C%B0%E5%9D%80"><span class="nav-number">9.9.</span> <span class="nav-text">IP 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac-%E5%9C%B0%E5%9D%80"><span class="nav-number">9.10.</span> <span class="nav-text">Mac 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CPU-%E4%BF%A1%E6%81%AF"><span class="nav-number">9.11.</span> <span class="nav-text">CPU 信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E4%BF%A1%E6%81%AF"><span class="nav-number">9.12.</span> <span class="nav-text">内存信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A%E7%A1%AC%E4%BB%B6%E4%B8%8E%E7%B3%BB%E7%BB%9F%E5%B1%9E%E6%80%A7"><span class="nav-number">9.13.</span> <span class="nav-text">更多硬件与系统属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E8%AE%BE%E7%BD%AE"><span class="nav-number">10.</span> <span class="nav-text">修改设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">10.1.</span> <span class="nav-text">分辨率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%8F%E5%B9%95%E5%AF%86%E5%BA%A6-1"><span class="nav-number">10.2.</span> <span class="nav-text">屏幕密度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%BE%E7%A4%BA%E5%8C%BA%E5%9F%9F"><span class="nav-number">10.3.</span> <span class="nav-text">显示区域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD-USB-%E8%B0%83%E8%AF%95%E6%A8%A1%E5%BC%8F"><span class="nav-number">10.4.</span> <span class="nav-text">关闭 USB 调试模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%81%E8%AE%B8-%E7%A6%81%E6%AD%A2%E8%AE%BF%E9%97%AE%E9%9D%9E-SDK-API"><span class="nav-number">10.5.</span> <span class="nav-text">允许&#x2F;禁止访问非 SDK API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%A0%8F%E5%92%8C%E5%AF%BC%E8%88%AA%E6%A0%8F%E7%9A%84%E6%98%BE%E7%A4%BA%E9%9A%90%E8%97%8F"><span class="nav-number">10.6.</span> <span class="nav-text">状态栏和导航栏的显示隐藏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E5%8A%9F%E8%83%BD"><span class="nav-number">11.</span> <span class="nav-text">实用功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE"><span class="nav-number">11.1.</span> <span class="nav-text">屏幕截图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%95%E5%88%B6%E5%B1%8F%E5%B9%95"><span class="nav-number">11.2.</span> <span class="nav-text">录制屏幕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E6%96%B0%E6%8C%82%E8%BD%BD-system-%E5%88%86%E5%8C%BA%E4%B8%BA%E5%8F%AF%E5%86%99"><span class="nav-number">11.3.</span> <span class="nav-text">重新挂载 system 分区为可写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%9A%84-WiFi-%E5%AF%86%E7%A0%81"><span class="nav-number">11.4.</span> <span class="nav-text">查看连接过的 WiFi 密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E7%B3%BB%E7%BB%9F%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"><span class="nav-number">11.5.</span> <span class="nav-text">设置系统日期和时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%89%8B%E6%9C%BA"><span class="nav-number">11.6.</span> <span class="nav-text">重启手机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%B5%8B%E8%AE%BE%E5%A4%87%E6%98%AF%E5%90%A6%E5%B7%B2-root"><span class="nav-number">11.7.</span> <span class="nav-text">检测设备是否已 root</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Monkey-%E8%BF%9B%E8%A1%8C%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="nav-number">11.8.</span> <span class="nav-text">使用 Monkey 进行压力测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF-%E5%85%B3%E9%97%AD-WiFi"><span class="nav-number">11.9.</span> <span class="nav-text">开启&#x2F;关闭 WiFi</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E6%9C%BA%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">12.</span> <span class="nav-text">刷机相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E5%88%B0-Recovery-%E6%A8%A1%E5%BC%8F"><span class="nav-number">12.1.</span> <span class="nav-text">重启到 Recovery 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E-Recovery-%E9%87%8D%E5%90%AF%E5%88%B0-Android"><span class="nav-number">12.2.</span> <span class="nav-text">从 Recovery 重启到 Android</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E5%88%B0-Fastboot-%E6%A8%A1%E5%BC%8F"><span class="nav-number">12.3.</span> <span class="nav-text">重启到 Fastboot 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87-sideload-%E6%9B%B4%E6%96%B0%E7%B3%BB%E7%BB%9F"><span class="nav-number">12.4.</span> <span class="nav-text">通过 sideload 更新系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">13.</span> <span class="nav-text">安全相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8-%E7%A6%81%E7%94%A8-SELinux"><span class="nav-number">13.1.</span> <span class="nav-text">启用&#x2F;禁用 SELinux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E7%94%A8-%E7%A6%81%E7%94%A8-dm-verity"><span class="nav-number">13.2.</span> <span class="nav-text">启用&#x2F;禁用 dm_verity</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E5%A4%9A-adb-shell-%E5%91%BD%E4%BB%A4"><span class="nav-number">14.</span> <span class="nav-text">更多 adb shell 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B"><span class="nav-number">14.1.</span> <span class="nav-text">查看进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%9E%E6%97%B6%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">14.2.</span> <span class="nav-text">查看实时资源占用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B-UID"><span class="nav-number">14.3.</span> <span class="nav-text">查看进程 UID</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E5%AE%83"><span class="nav-number">14.4.</span> <span class="nav-text">其它</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">15.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8-adb-server-%E5%A4%B1%E8%B4%A5"><span class="nav-number">15.1.</span> <span class="nav-text">启动 adb server 失败</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#com-android-ddmlib-AdbCommandRejectedException"><span class="nav-number">15.2.</span> <span class="nav-text">com.android.ddmlib.AdbCommandRejectedException</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#adb-%E7%9A%84%E9%9D%9E%E5%AE%98%E6%96%B9%E5%AE%9E%E7%8E%B0"><span class="nav-number">16.</span> <span class="nav-text">adb 的非官方实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">17.</span> <span class="nav-text">相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#aapt%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">17.1.</span> <span class="nav-text">aapt相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#am%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">17.2.</span> <span class="nav-text">am相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dumpsys%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">17.3.</span> <span class="nav-text">dumpsys相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8DActivity"><span class="nav-number">17.3.1.</span> <span class="nav-text">获取当前Activity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8DWindow"><span class="nav-number">17.3.2.</span> <span class="nav-text">获取当前Window</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pm%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">17.4.</span> <span class="nav-text">pm相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#pm-%E2%80%93help"><span class="nav-number">17.4.1.</span> <span class="nav-text">pm –help</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%8B%E6%9C%BA%E4%B8%ADAPK%E7%9A%84%E5%AD%98%E6%94%BE%E4%BD%8D%E7%BD%AE"><span class="nav-number">17.4.2.</span> <span class="nav-text">查看手机中APK的存放位置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uiautomator%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4"><span class="nav-number">17.5.</span> <span class="nav-text">uiautomator相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E5%B8%83%E5%B1%80"><span class="nav-number">17.5.1.</span> <span class="nav-text">获取当前页面布局</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="nav-number">18.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Hello</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.funcoding.cn/2023/02/28/ADB%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Hello">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FunCoding">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ADB用法大全 | FunCoding">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ADB用法大全
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">开发工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>ADB，即 <a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb.html">Android Debug Bridge</a>，它是 Android 开发&#x2F;测试人员不可替代的强大工具，也是 Android 设备玩家的好玩具。但是在工作中经常会忘记adb命令，所以就把网上写得比较好的文章整合成博客，方便后续查阅。</p>
 <blockquote>
-<p>文章内容参考<a href="https://github.com/mzlogin/awesome-adb">https://github.com/mzlogin/awesome-adb</a></p>
+<p>文章内容参考<a target="_blank" rel="noopener" href="https://github.com/mzlogin/awesome-adb">https://github.com/mzlogin/awesome-adb</a></p>
 </blockquote>
 <p><strong>注：</strong> 文中有部分命令的支持情况可能与 Android 系统版本及定制 ROM 的实现有关。</p>
 <span id="more"></span>
@@ -256,10 +347,10 @@
 </li>
 </ol>
 <h3 id="无线连接（Android11-及以上）"><a href="#无线连接（Android11-及以上）" class="headerlink" title="无线连接（Android11 及以上）"></a>无线连接（Android11 及以上）</h3><p>Android 11 及更高版本支持使用 Android 调试桥 (adb) 从工作站以无线方式部署和调试应用。例如，您可以将可调试应用部署到多台远程设备，而无需通过<br>USB 实际连接设备。这样就可以避免常见的 USB 连接问题，例如驱动程序安装方面的问题。</p>
-<p><a href="https://developer.android.com/studio/command-line/adb?hl=zh_cn#connect-to-a-device-over-wi-fi-android-11+">官方文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb?hl=zh_cn#connect-to-a-device-over-wi-fi-android-11+">官方文档</a></p>
 <p>操作步骤：</p>
 <ol>
-<li><p>更新到最新版本的 <a href="https://developer.android.com/studio/releases/platform-tools?hl=zh_cn">SDK 平台工具</a>(至少30.0.0)。</p>
+<li><p>更新到最新版本的 <a target="_blank" rel="noopener" href="https://developer.android.com/studio/releases/platform-tools?hl=zh_cn">SDK 平台工具</a>(至少30.0.0)。</p>
 </li>
 <li><p>将 Android 设备与要运行 adb 的电脑连接到同一个局域网，比如连到同一个 WiFi。</p>
 </li>
@@ -329,7 +420,7 @@
 <p>既然我们想要实现无线连接，那能不能所有步骤下来都是无线的呢？答案是能的。</p>
 <ol>
 <li><p>在 Android 设备上安装一个终端模拟器。</p>
-<p>已经安装过的设备可以跳过此步。我使用的终端模拟器下载地址是：<a href="https://jackpal.github.io/Android-Terminal-Emulator/">Terminal Emulator for Android Downloads</a></p>
+<p>已经安装过的设备可以跳过此步。我使用的终端模拟器下载地址是：<a target="_blank" rel="noopener" href="https://jackpal.github.io/Android-Terminal-Emulator/">Terminal Emulator for Android Downloads</a></p>
 </li>
 <li><p>将 Android 设备与要运行 adb 的电脑连接到同一个局域网，比如连到同一个 WiFi。</p>
 </li>
@@ -745,7 +836,7 @@
 <td>先卸载设备上的该应用，再安装</td>
 </tr>
 </tbody></table>
-<p>参考：<a href="https://github.com/android/platform_frameworks_base/blob/master/core%2Fjava%2Fandroid%2Fcontent%2Fpm%2FPackageManager.java">PackageManager.java</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://github.com/android/platform_frameworks_base/blob/master/core%2Fjava%2Fandroid%2Fcontent%2Fpm%2FPackageManager.java">PackageManager.java</a></p>
 <p><em><code>adb install</code> 内部原理简介</em></p>
 <p><code>adb install</code> 实际是分三步完成：</p>
 <ol>
@@ -1076,7 +1167,7 @@
 <p><code>input</code> 命令的完整 help 信息如下：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">Usage: input [&lt;<span class="built_in">source</span>&gt;] &lt;<span class="built_in">command</span>&gt; [&lt;arg&gt;...]</span><br><span class="line"></span><br><span class="line">The sources are:</span><br><span class="line">      mouse</span><br><span class="line">      keyboard</span><br><span class="line">      joystick</span><br><span class="line">      touchnavigation</span><br><span class="line">      touchpad</span><br><span class="line">      trackball</span><br><span class="line">      stylus</span><br><span class="line">      dpad</span><br><span class="line">      gesture</span><br><span class="line">      touchscreen</span><br><span class="line">      gamepad</span><br><span class="line"></span><br><span class="line">The commands and default sources are:</span><br><span class="line">      text &lt;string&gt; (Default: touchscreen)</span><br><span class="line">      keyevent [--longpress] &lt;key code number or name&gt; ... (Default: keyboard)</span><br><span class="line">      tap &lt;x&gt; &lt;y&gt; (Default: touchscreen)</span><br><span class="line">      swipe &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; [duration(ms)] (Default: touchscreen)</span><br><span class="line">      press (Default: trackball)</span><br><span class="line">      roll &lt;dx&gt; &lt;dy&gt; (Default: trackball)</span><br></pre></td></tr></table></figure>
 
-<p>比如使用 <code>adb shell input keyevent &lt;keycode&gt;</code> 命令，不同的 keycode 能实现不同的功能，完整的 keycode<br>列表详见 <a href="https://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a>，摘引部分我觉得有意思的如下：</p>
+<p>比如使用 <code>adb shell input keyevent &lt;keycode&gt;</code> 命令，不同的 keycode 能实现不同的功能，完整的 keycode<br>列表详见 <a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/view/KeyEvent.html">KeyEvent</a>，摘引部分我觉得有意思的如下：</p>
 <table>
 <thead>
 <tr>
@@ -1420,7 +1511,7 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">Result: Parcel(</span><br><span class="line">  0x00000000: 00000000 0000000f 00360038 00390030 <span class="string">&#x27;........8.6.0.9.&#x27;</span></span><br><span class="line">  0x00000010: 00350035 00320030 00370037 00350038 <span class="string">&#x27;5.5.0.2.7.7.8.5.&#x27;</span></span><br><span class="line">  0x00000020: 00340030 00000031                   <span class="string">&#x27;0.4.1...        &#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>把里面的有效内容提取出来就是 IMEI 了，比如这里的是 <code>860955027785041</code>。</p>
-<p>参考：<a href="http://stackoverflow.com/questions/27002663/adb-shell-dumpsys-iphonesubinfo-not-working-since-android-5-0-lollipop">adb shell dumpsys iphonesubinfo not working since Android 5.0 Lollipop</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/27002663/adb-shell-dumpsys-iphonesubinfo-not-working-since-android-5-0-lollipop">adb shell dumpsys iphonesubinfo not working since Android 5.0 Lollipop</a></p>
 <h3 id="Android-系统版本"><a href="#Android-系统版本" class="headerlink" title="Android 系统版本"></a>Android 系统版本</h3><p>命令：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb shell getprop ro.build.version.release</span><br></pre></td></tr></table></figure>
 
@@ -1693,7 +1784,7 @@
 <p><em>Mac OS X</em></p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb shell screencap -p | gsed <span class="string">&quot;s/\r$//&quot;</span> &gt; sc.png</span><br></pre></td></tr></table></figure>
 
-<p>这个方法需要用到 gnu sed 命令，在 Linux 下直接就有，在 Windows 下 Git 安装目录的 bin<br>文件夹下也有。如果确实找不到该命令，可以下载 <a href="http://gnuwin32.sourceforge.net/packages/sed.htm">sed for Windows</a> 并将<br>sed.exe 所在文件夹添加到 PATH 环境变量里。</p>
+<p>这个方法需要用到 gnu sed 命令，在 Linux 下直接就有，在 Windows 下 Git 安装目录的 bin<br>文件夹下也有。如果确实找不到该命令，可以下载 <a target="_blank" rel="noopener" href="http://gnuwin32.sourceforge.net/packages/sed.htm">sed for Windows</a> 并将<br>sed.exe 所在文件夹添加到 PATH 环境变量里。</p>
 <p>而在 Mac 下使用系统自带的 sed 命令会报错：</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sed: RE error: illegal byte sequence</span><br></pre></td></tr></table></figure>
 
@@ -1790,7 +1881,7 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb shell monkey -p &lt;packagename&gt; -v 500</span><br></pre></td></tr></table></figure>
 
 <p>表示向 <code>&lt;packagename&gt;</code> 指定的应用程序发送 500 个伪随机事件。</p>
-<p>Monkey 的详细用法参考 <a href="https://developer.android.com/studio/test/monkey.html">官方文档</a>。</p>
+<p>Monkey 的详细用法参考 <a target="_blank" rel="noopener" href="https://developer.android.com/studio/test/monkey.html">官方文档</a>。</p>
 <h3 id="开启-关闭-WiFi"><a href="#开启-关闭-WiFi" class="headerlink" title="开启&#x2F;关闭 WiFi"></a>开启&#x2F;关闭 WiFi</h3><p><strong>注：需要 root 权限。</strong></p>
 <p>有时需要控制设备的 WiFi 状态，可以用以下指令完成。</p>
 <p>开启 WiFi：</p>
@@ -2011,7 +2102,7 @@
 <p>在手机上安装一个终端然后执行 su 提示没有该命令，这不正常。</p>
 <p>于是删除该模拟器后重新下载安装一次，这次就正常了。</p>
 <h2 id="adb-的非官方实现"><a href="#adb-的非官方实现" class="headerlink" title="adb 的非官方实现"></a>adb 的非官方实现</h2><ul>
-<li><a href="https://github.com/facebook/fb-adb">fb-adb</a> - A better shell for Android devices (for Mac).</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/facebook/fb-adb">fb-adb</a> - A better shell for Android devices (for Mac).</li>
 </ul>
 <h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><h3 id="aapt相关命令"><a href="#aapt相关命令" class="headerlink" title="aapt相关命令"></a>aapt相关命令</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">Android Asset Packaging Tool</span><br><span class="line"></span><br><span class="line">Usage:</span><br><span class="line"> aapt l[ist] [-v] [-a] file.&#123;zip,jar,apk&#125;</span><br><span class="line">   List contents of Zip-compatible archive.</span><br><span class="line"></span><br><span class="line"> aapt d[ump] [--values] [--include-meta-data] WHAT file.&#123;apk&#125; [asset [asset ...]]</span><br><span class="line">   strings          Print the contents of the resource table string pool <span class="keyword">in</span> the APK.</span><br><span class="line">   badging          Print the label and icon <span class="keyword">for</span> the app declared <span class="keyword">in</span> APK.</span><br><span class="line">   permissions      Print the permissions from the APK.</span><br><span class="line">   resources        Print the resource table from the APK.</span><br><span class="line">   configurations   Print the configurations <span class="keyword">in</span> the APK.</span><br><span class="line">   xmltree          Print the compiled xmls <span class="keyword">in</span> the given assets.</span><br><span class="line">   xmlstrings       Print the strings of the given compiled xml assets.</span><br><span class="line"></span><br><span class="line"> aapt p[ackage] [-d][-f][-m][-u][-v][-x][-z][-M AndroidManifest.xml] \</span><br><span class="line">        [-0 extension [-0 extension ...]] [-g tolerance] [-j jarfile] \</span><br><span class="line">        [--debug-mode] [--min-sdk-version VAL] [--target-sdk-version VAL] \</span><br><span class="line">        [--app-version VAL] [--app-version-name TEXT] [--custom-package VAL] \</span><br><span class="line">        [--rename-manifest-package PACKAGE] \</span><br><span class="line">        [--rename-instrumentation-target-package PACKAGE] \</span><br><span class="line">        [--utf16] [--auto-add-overlay] \</span><br><span class="line">        [--max-res-version VAL] \</span><br><span class="line">        [-I base-package [-I base-package ...]] \</span><br><span class="line">        [-A asset-source-dir]  [-G class-list-file] [-P public-definitions-file] \</span><br><span class="line">        [-D main-dex-class-list-file] \</span><br><span class="line">        [-S resource-sources [-S resource-sources ...]] \</span><br><span class="line">        [-F apk-file] [-J R-file-dir] \</span><br><span class="line">        [--product product1,product2,...] \</span><br><span class="line">        [-c CONFIGS] [--preferred-density DENSITY] \</span><br><span class="line">        [--<span class="built_in">split</span> CONFIGS [--<span class="built_in">split</span> CONFIGS]] \</span><br><span class="line">        [--feature-of package [--feature-after package]] \</span><br><span class="line">        [raw-files-dir [raw-files-dir] ...] \</span><br><span class="line">        [--output-text-symbols DIR]</span><br><span class="line"></span><br><span class="line">   Package the android resources.  It will <span class="built_in">read</span> assets and resources that are</span><br><span class="line">   supplied with the -M -A -S or raw-files-dir arguments.  The -J -P -F and -R</span><br><span class="line">   options control <span class="built_in">which</span> files are output.</span><br><span class="line"></span><br><span class="line"> aapt r[emove] [-v] file.&#123;zip,jar,apk&#125; file1 [file2 ...]</span><br><span class="line">   Delete specified files from Zip-compatible archive.</span><br><span class="line"></span><br><span class="line"> aapt a[<span class="built_in">dd</span>] [-v] file.&#123;zip,jar,apk&#125; file1 [file2 ...]</span><br><span class="line">   Add specified files to Zip-compatible archive.</span><br><span class="line"></span><br><span class="line"> aapt c[runch] [-v] -S resource-sources ... -C output-folder ...</span><br><span class="line">   Do PNG preprocessing on one or several resource folders</span><br><span class="line">   and store the results <span class="keyword">in</span> the output folder.</span><br><span class="line"></span><br><span class="line"> aapt s[ingleCrunch] [-v] -i input-file -o outputfile</span><br><span class="line">   Do PNG preprocessing on a single file.</span><br><span class="line"></span><br><span class="line"> aapt v[ersion]</span><br><span class="line">   Print program version.</span><br><span class="line"></span><br><span class="line"> Modifiers:</span><br><span class="line">   -a  <span class="built_in">print</span> Android-specific data (resources, manifest) when listing</span><br><span class="line">   -c  specify <span class="built_in">which</span> configurations to include.  The default is all</span><br><span class="line">       configurations.  The value of the parameter should be a comma</span><br><span class="line">       separated list of configuration values.  Locales should be specified</span><br><span class="line">       as either a language or language-region pair.  Some examples:</span><br><span class="line">            en</span><br><span class="line">            port,en</span><br><span class="line">            port,land,en_US</span><br><span class="line">   -d  one or more device assets to include, separated by commas</span><br><span class="line">   -f  force overwrite of existing files</span><br><span class="line">   -g  specify a pixel tolerance to force images to grayscale, default 0</span><br><span class="line">   -j  specify a jar or zip file containing classes to include</span><br><span class="line">   -k  junk path of file(s) added</span><br><span class="line">   -m  make package directories under location specified by -J</span><br><span class="line">   -u  update existing packages (add new, replace older, remove deleted files)</span><br><span class="line">   -v  verbose output</span><br><span class="line">   -x  create extending (non-application) resource IDs</span><br><span class="line">   -z  require localization of resource attributes marked with</span><br><span class="line">       localization=<span class="string">&quot;suggested&quot;</span></span><br><span class="line">   -A  additional directory <span class="keyword">in</span> <span class="built_in">which</span> to find raw asset files</span><br><span class="line">   -G  A file to output proguard options into.</span><br><span class="line">   -D  A file to output proguard options <span class="keyword">for</span> the main dex into.</span><br><span class="line">   -F  specify the apk file to output</span><br><span class="line">   -I  add an existing package to base include <span class="built_in">set</span></span><br><span class="line">   -J  specify <span class="built_in">where</span> to output R.java resource constant definitions</span><br><span class="line">   -M  specify full path to AndroidManifest.xml to include <span class="keyword">in</span> zip</span><br><span class="line">   -P  specify <span class="built_in">where</span> to output public resource definitions</span><br><span class="line">   -S  directory <span class="keyword">in</span> <span class="built_in">which</span> to find resources.  Multiple directories will be scanned</span><br><span class="line">       and the first match found (left to right) will take precedence.</span><br><span class="line">   -0  specifies an additional extension <span class="keyword">for</span> <span class="built_in">which</span> such files will not</span><br><span class="line">       be stored compressed <span class="keyword">in</span> the .apk.  An empty string means to not</span><br><span class="line">       compress any files at all.</span><br><span class="line">   --debug-mode</span><br><span class="line">       inserts android:debuggable=<span class="string">&quot;true&quot;</span> <span class="keyword">in</span> to the application node of the</span><br><span class="line">       manifest, making the application debuggable even on production devices.</span><br><span class="line">   --include-meta-data</span><br><span class="line">       when used with <span class="string">&quot;dump badging&quot;</span> also includes meta-data tags.</span><br><span class="line">   --pseudo-localize</span><br><span class="line">       generate resources <span class="keyword">for</span> pseudo-locales (en-XA and ar-XB).</span><br><span class="line">   --min-sdk-version</span><br><span class="line">       inserts android:minSdkVersion <span class="keyword">in</span> to manifest.  If the version is 7 or</span><br><span class="line">       higher, the default encoding <span class="keyword">for</span> resources will be <span class="keyword">in</span> UTF-8.</span><br><span class="line">   --target-sdk-version</span><br><span class="line">       inserts android:targetSdkVersion <span class="keyword">in</span> to manifest.</span><br><span class="line">   --max-res-version</span><br><span class="line">       ignores versioned resource directories above the given value.</span><br><span class="line">   --values</span><br><span class="line">       when used with <span class="string">&quot;dump resources&quot;</span> also includes resource values.</span><br><span class="line">   --version-code</span><br><span class="line">       inserts android:versionCode <span class="keyword">in</span> to manifest.</span><br><span class="line">   --version-name</span><br><span class="line">       inserts android:versionName <span class="keyword">in</span> to manifest.</span><br><span class="line">   --replace-version</span><br><span class="line">       If --version-code and/or --version-name are specified, these</span><br><span class="line">       values will replace any value already <span class="keyword">in</span> the manifest. By</span><br><span class="line">       default, nothing is changed <span class="keyword">if</span> the manifest already defines</span><br><span class="line">       these attributes.</span><br><span class="line">   --custom-package</span><br><span class="line">       generates R.java into a different package.</span><br><span class="line">   --extra-packages</span><br><span class="line">       generate R.java <span class="keyword">for</span> libraries. Separate libraries with <span class="string">&#x27;:&#x27;</span>.</span><br><span class="line">   --generate-dependencies</span><br><span class="line">       generate dependency files <span class="keyword">in</span> the same directories <span class="keyword">for</span> R.java and resource package</span><br><span class="line">   --auto-add-overlay</span><br><span class="line">       Automatically add resources that are only <span class="keyword">in</span> overlays.</span><br><span class="line">   --preferred-density</span><br><span class="line">       Specifies a preference <span class="keyword">for</span> a particular density. Resources that <span class="keyword">do</span> not</span><br><span class="line">       match this density and have variants that are a closer match are removed.</span><br><span class="line">   --<span class="built_in">split</span></span><br><span class="line">       Builds a separate <span class="built_in">split</span> APK <span class="keyword">for</span> the configurations listed. This can</span><br><span class="line">       be loaded alongside the base APK at runtime.</span><br><span class="line">   --feature-of</span><br><span class="line">       Builds a <span class="built_in">split</span> APK that is a feature of the apk specified here. Resources</span><br><span class="line">       <span class="keyword">in</span> the base APK can be referenced from the the feature APK.</span><br><span class="line">   --feature-after</span><br><span class="line">       An app can have multiple Feature Split APKs <span class="built_in">which</span> must be totally ordered.</span><br><span class="line">       If --feature-of is specified, this flag specifies <span class="built_in">which</span> Feature Split APK</span><br><span class="line">       comes before this one. The first Feature Split APK should not define</span><br><span class="line">       anything here.</span><br><span class="line">   --rename-manifest-package</span><br><span class="line">       Rewrite the manifest so that its package name is the package name</span><br><span class="line">       given here.  Relative class names (<span class="keyword">for</span> example .Foo) will be</span><br><span class="line">       changed to absolute names with the old package so that the code</span><br><span class="line">       does not need to change.</span><br><span class="line">   --rename-instrumentation-target-package</span><br><span class="line">       Rewrite the manifest so that all of its instrumentation</span><br><span class="line">       components target the given package.  Useful when used <span class="keyword">in</span></span><br><span class="line">       conjunction with --rename-manifest-package to fix tests against</span><br><span class="line">       a package that has been renamed.</span><br><span class="line">   --product</span><br><span class="line">       Specifies <span class="built_in">which</span> variant to choose <span class="keyword">for</span> strings that have</span><br><span class="line">       product variants</span><br><span class="line">   --utf16</span><br><span class="line">       changes default encoding <span class="keyword">for</span> resources to UTF-16.  Only useful when API</span><br><span class="line">       level is <span class="built_in">set</span> to 7 or higher <span class="built_in">where</span> the default encoding is UTF-8.</span><br><span class="line">   --non-constant-id</span><br><span class="line">       Make the resources ID non constant. This is required to make an R java class</span><br><span class="line">       that does not contain the final value but is used to make reusable compiled</span><br><span class="line">       libraries that need to access resources.</span><br><span class="line">   --shared-lib</span><br><span class="line">       Make a shared library resource package that can be loaded by an application</span><br><span class="line">       at runtime to access the libraries resources. Implies --non-constant-id.</span><br><span class="line">   --app-as-shared-lib</span><br><span class="line">       Make an app resource package that also can be loaded as shared library at runtime.</span><br><span class="line">       Implies --non-constant-id.</span><br><span class="line">   --error-on-failed-insert</span><br><span class="line">       Forces aapt to <span class="built_in">return</span> an error <span class="keyword">if</span> it fails to insert values into the manifest</span><br><span class="line">       with --debug-mode, --min-sdk-version, --target-sdk-version --version-code</span><br><span class="line">       and --version-name.</span><br><span class="line">       Insertion typically fails <span class="keyword">if</span> the manifest already defines the attribute.</span><br><span class="line">   --error-on-missing-config-entry</span><br><span class="line">       Forces aapt to <span class="built_in">return</span> an error <span class="keyword">if</span> it fails to find an entry <span class="keyword">for</span> a configuration.</span><br><span class="line">   --output-text-symbols</span><br><span class="line">       Generates a text file containing the resource symbols of the R class <span class="keyword">in</span> the</span><br><span class="line">       specified folder.</span><br><span class="line">   --ignore-assets</span><br><span class="line">       Assets to be ignored. Default pattern is:</span><br><span class="line">       !.svn:!.git:!.ds_store:!*.scc:.*:&lt;<span class="built_in">dir</span>&gt;_*:!CVS:!thumbs.db:!picasa.ini:!*~</span><br><span class="line">   --skip-symbols-without-default-localization</span><br><span class="line">       Prevents symbols from being generated <span class="keyword">for</span> strings that <span class="keyword">do</span> not have a default</span><br><span class="line">       localization</span><br><span class="line">   --no-version-vectors</span><br><span class="line">       Do not automatically generate versioned copies of vector XML resources.</span><br><span class="line">   --no-version-transitions</span><br><span class="line">       Do not automatically generate versioned copies of transition XML resources.</span><br><span class="line">   --private-symbols</span><br><span class="line">       Java package name to use when generating R.java <span class="keyword">for</span> private resources.</span><br></pre></td></tr></table></figure>
 
@@ -2046,22 +2137,105 @@
 <h4 id="获取当前页面布局"><a href="#获取当前页面布局" class="headerlink" title="获取当前页面布局"></a>获取当前页面布局</h4><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">adb shell uiautomator dump /data/local/tmp/uidump.xml  &amp;&amp; adb pull /data/local/tmp/uidump.xml uidump.xml</span><br></pre></td></tr></table></figure>
 
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://developer.android.com/studio/command-line/adb.html">Android Debug Bridge</a></li>
-<li><a href="https://developer.android.com/studio/command-line/shell.html">ADB Shell Commands</a></li>
-<li><a href="https://developer.android.com/studio/command-line/logcat.html">logcat Command-line Tool</a></li>
-<li><a href="http://zmywly8866.github.io/2015/01/24/all-adb-command.html">Android ADB命令大全</a></li>
-<li><a href="https://github.com/ZQiang94/StudyRecords/blob/master/other/src/main/java/com/other/adb%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95.md">adb 命令行的使用记录</a></li>
-<li><a href="http://www.jianshu.com/p/860bc2bf1a6a">Android ADB命令大全(通过ADB命令查看wifi密码、MAC地址、设备信息、操作文件、查看文件、日志信息、卸载、启动和安装APK等)</a></li>
-<li><a href="http://yifeiyuan.me/2016/06/30/ADB%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">那些做Android开发必须知道的ADB命令</a></li>
-<li><a href="http://blog.csdn.net/kittyboy0001/article/details/38562515">adb shell top</a></li>
-<li><a href="http://cabins.github.io/2016/03/25/UseAdbLikeAPro-2/">像高手一样使用ADB命令行（2）</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/adb.html">Android Debug Bridge</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/shell.html">ADB Shell Commands</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.android.com/studio/command-line/logcat.html">logcat Command-line Tool</a></li>
+<li><a target="_blank" rel="noopener" href="http://zmywly8866.github.io/2015/01/24/all-adb-command.html">Android ADB命令大全</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ZQiang94/StudyRecords/blob/master/other/src/main/java/com/other/adb%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%9A%84%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95.md">adb 命令行的使用记录</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/860bc2bf1a6a">Android ADB命令大全(通过ADB命令查看wifi密码、MAC地址、设备信息、操作文件、查看文件、日志信息、卸载、启动和安装APK等)</a></li>
+<li><a target="_blank" rel="noopener" href="http://yifeiyuan.me/2016/06/30/ADB%E5%91%BD%E4%BB%A4%E6%95%B4%E7%90%86/">那些做Android开发必须知道的ADB命令</a></li>
+<li><a target="_blank" rel="noopener" href="http://blog.csdn.net/kittyboy0001/article/details/38562515">adb shell top</a></li>
+<li><a target="_blank" rel="noopener" href="http://cabins.github.io/2016/03/25/UseAdbLikeAPro-2/">像高手一样使用ADB命令行（2）</a></li>
 </ul>
-]]></content>
-      <categories>
-        <category>开发工具</category>
-      </categories>
-      <tags>
-        <tag>adb</tag>
-      </tags>
-  </entry>
-</search>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/adb/" rel="tag"># adb</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/08/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4submodule%E5%B7%A5%E7%A8%8B/" rel="prev" title="快速删除 submodule 子工程">
+                  <i class="fa fa-angle-left"></i> 快速删除 submodule 子工程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/08/%E8%AE%BE%E7%BD%AEhexo%E9%A6%96%E9%A1%B5%E5%8F%AA%E6%98%BE%E7%A4%BA%E9%83%A8%E5%88%86%E6%91%98%E8%A6%81/" rel="next" title="设置hexo首页只显示部分摘要">
+                  设置hexo首页只显示部分摘要 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">鄂ICP备19011431号-2 </a>
+      <img src="/images/website/police_beian.png" alt=""><a href="https://beian.mps.gov.cn/#/query/webSearch?code=42122402000178" rel="noopener" target="_blank">鄂公网安备 42122402000178号 </a>
+  </div>
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Hello</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js","integrity":"sha256-mm3Re3y7xlvh+yCD+l/Zs1d+PU0AEad93MkWvljfm/s="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
