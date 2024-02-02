@@ -15,6 +15,29 @@
       </tags>
   </entry>
   <entry>
+    <title>快速克隆 submodule 工程</title>
+    <url>/2020/11/08/%E5%BF%AB%E9%80%9F%E5%85%8B%E9%9A%86submodule%E5%B7%A5%E7%A8%8B/</url>
+    <content><![CDATA[<p>克隆一个含有 submodule 子工程的项目，有两种可行的方式：</p>
+<span id="more"></span>
+
+<ol>
+<li>克隆主项目和所有子项目源码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --recurse-submodules &lt;main_project_url&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>先克隆主工程代码，然后再克隆 submodule 工程代码</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone MainProject.git</span><br><span class="line"></span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>快速删除 submodule 子工程</title>
     <url>/2020/11/08/%E5%BF%AB%E9%80%9F%E5%88%A0%E9%99%A4submodule%E5%B7%A5%E7%A8%8B/</url>
     <content><![CDATA[<p>删除 git 工程中的 submodule 子模块具体步骤如下：</p>
@@ -35,29 +58,6 @@
 </li>
 </ol>
 <p>完成上述步骤后，可以手动删除 submodule 的文件夹及其中的文件，最后在根目录的 <code>settings.gradle</code> 文件中将 submodule 相关的行删除</p>
-]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>快速克隆 submodule 工程</title>
-    <url>/2020/11/08/%E5%BF%AB%E9%80%9F%E5%85%8B%E9%9A%86submodule%E5%B7%A5%E7%A8%8B/</url>
-    <content><![CDATA[<p>克隆一个含有 submodule 子工程的项目，有两种可行的方式：</p>
-<span id="more"></span>
-
-<ol>
-<li>克隆主项目和所有子项目源码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone --recurse-submodules &lt;main_project_url&gt;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>先克隆主工程代码，然后再克隆 submodule 工程代码</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone MainProject.git</span><br><span class="line"></span><br><span class="line">git submodule update --init</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Git</category>
